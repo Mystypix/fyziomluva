@@ -1,7 +1,6 @@
 ---
     const pathname = new URL(Astro.request.url).pathname;
     const currentPath = pathname.slice(1);
-    console.log(currentPath);
 ---
 <nav>
     <a class="logo" href="/">Fyziomluva</a>
@@ -9,8 +8,8 @@
         <input type="checkbox" />
         <div class="hamburger"></div>
         <div class="navLinks">
-            <a class={currentPath === "/o-mne" ? "active navLink" : "navLink"} href="/o-mne">O mně</a>
-            <a class={currentPath === "/co-nabizim" ? "active navLink" : "navLink"} href="/co-nabizim">Co nabízím</a>
+            <a class={currentPath === "o-mne/" ? "active navLink" : "navLink"} href="/o-mne">O mně</a>
+            <a class={currentPath === "co-nabizim/" ? "active navLink" : "navLink"} href="/co-nabizim">Co nabízím</a>
         </div>
     </div>
 </nav>
