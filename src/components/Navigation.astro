@@ -1,0 +1,191 @@
+---
+    const pathname = new URL(Astro.request.url).pathname;
+    const currentPath = pathname.slice(1); // remove the first "/"
+---
+<nav>
+    <a class="logo" href="./">Fyziomluva</a>
+    <div class="toggleMenu">
+        <input type="checkbox" />
+        <div class="hamburger"></div>
+        <div class="navLinks">
+            <a class={currentPath === "o-mne" ? "active navLink" : "navLink"} href="./o-mne">O mně</a>
+            <a class={currentPath === "co-nabizim" ? "active navLink" : "navLink"} href="./co-nabizim">Co nabízím</a>
+        </div>
+    </div>
+</nav>
+<style>
+    nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 30px;
+        background-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .logo {
+        font-family: 'Ephesis', cursive;
+        font-size: 40px;
+        text-decoration: none;
+        transition: color .3s;
+
+        &:hover {
+            color: var(--color-text-hover);
+        }
+    }
+
+    .navLinks {
+        display: flex;
+        align-items: center;
+    }
+
+    .navLink {
+        position: relative;
+        display: block;
+        margin: 0 10px;
+        padding: 0 5px;
+        line-height: 50px;
+        text-decoration: none;
+        overflow: hidden;
+        transition: color .3s;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 4px;
+            background-color: var(--color-main);
+            transition: transform 0.3s;
+            transform: translateX(-100%);
+        }
+
+        &:hover {
+            color: var(--color-text-hover);
+        }
+
+        &.active {
+            cursor: default;
+        }
+
+        &.active::before,
+        &:hover::before {
+            transform: translateX(0);
+        }
+    }
+
+    .toggleMenu input {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        opacity: 0;
+        z-index: 3;
+        -webkit-touch-callout: none;
+        pointer-events: none;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .toggleMenu {
+            display: block;
+            position: relative;
+            z-index: 3;
+            width: 40px;
+            height: 25px;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .toggleMenu input {
+            pointer-events: all;
+        }
+
+        .hamburger {
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            width: 40px;
+            height: 4px;
+            transition-delay: .13s;
+            transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+            transition-duration: .13s;
+            background: var(--color-text);
+            border-radius: 4px;
+            z-index: 2;
+
+            &::before {
+                content: '';
+                top: -10px;
+                transition: top .12s cubic-bezier(.33333, .66667, .66667, 1) .2s, transform .13s cubic-bezier(.55, .055, .675, .19);
+            }
+
+            &::after {
+                content: '';
+                top: -20px;
+                transition: top .2s cubic-bezier(.33333, .66667, .66667, 1) .2s, opacity .1s linear;
+            }
+
+            &::before,
+            &::after {
+                background: var(--color-text);
+                position: absolute;
+                width: 40px;
+                height: 4px;
+                transition-timing-function: ease;
+                transition-duration: .15s;
+                transition-property: transform background;
+                border-radius: 4px;
+            }
+        }
+
+        .toggleMenu input:checked ~ .hamburger {
+            transition-delay: .22s;
+            transition-timing-function: cubic-bezier(.215, .61, .355, 1);
+            transform: translate3d(0, -10px, 0) rotate(-45deg);
+        }
+
+        .toggleMenu input:checked ~ .hamburger::before {
+            top: 0;
+            transition: top .1s cubic-bezier(.33333, 0, .66667, .33333) .16s, transform .13s cubic-bezier(.215, .61, .355, 1) .25s;
+            transform: rotate(-90deg);
+        }
+
+        .toggleMenu input:checked ~ .hamburger::after {
+            top: 0;
+            transition: top .2s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s linear .22s;
+            opacity: 0;
+        }
+
+        .navLinks {
+            position: fixed;
+            top: 0;
+            right: 0;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            height: 100vh;
+            width: 300px;
+            margin: 0;
+            padding: 70px 30px 30px;
+            background: #ededed;
+            list-style-type: none;
+            -webkit-font-smoothing: antialiased;
+            transform-origin: 0 0;
+            transform: translate(100%, 0);
+            transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+        }
+
+        .toggleMenu input:checked ~ .navLinks {
+            transform: none;
+        }
+    }
+</style>
