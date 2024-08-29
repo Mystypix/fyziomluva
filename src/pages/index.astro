@@ -17,10 +17,16 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 <style>
 	.intro {
+		padding: 72px 20px 20px;
 		background: url("/intro-bg.jpg") no-repeat center center;
 		background-attachment: fixed;
 		background-size: cover;
-		padding: 20px;
 		text-align: center;
+	}
+
+	@media screen and (max-width: 768px) {
+		.intro {
+			padding: 58px 20px 20px;
+		}
 	}
 </style>

@@ -10,6 +10,13 @@
         <div class="navLinks">
             <a class={currentPath === "o-mne/" ? "active navLink" : "navLink"} href="/o-mne">O mně</a>
             <a class={currentPath === "co-nabizim/" ? "active navLink" : "navLink"} href="/co-nabizim">Co nabízím</a>
+            <div class="socialIcons">
+                <a class="socialLink" href="https://forendors.cz/fyziomluva">
+                    <svg class="socialIcon" viewBox="0 0 35 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M.013 31.999V40h1.914c4.385 0 7.94-3.583 7.94-8.001 0-3.93 3.165-7.12 7.065-7.12h10.116c4.384 0 7.94-3.583 7.94-8.002v-1.93H16.925C7.576 14.948 0 22.583 0 32.006L.013 32Z" fill="url(#a)"/><path d="M30.175 0c-2.987 0-5.406 2.438-5.406 5.448v4.547h4.825C32.581 9.995 35 7.557 35 4.547V0h-4.825Z" fill="url(#b)"/><defs><linearGradient id="a" x1="51.37" y1="107.49" x2="88.335" y2="70.542" gradientUnits="userSpaceOnUse"><stop stop-color="#E51139"/><stop offset="1" stop-color="#F6AD12"/></linearGradient><linearGradient id="b" x1="-4.761" y1="40.167" x2="35.433" y2="-.016" gradientUnits="userSpaceOnUse"><stop stop-color="#E51139"/><stop offset="1" stop-color="#F6AD12"/></linearGradient></defs></svg>            </a>
+                <a class="socialLink" href="https://instagram.com/fyziomluva">
+                    <svg class="socialIcon" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M33.076 9.324a2.4 2.4 0 1 1-4.8 0 2.4 2.4 0 0 1 4.8 0ZM20 26.667a6.667 6.667 0 1 1 0-13.334 6.667 6.667 0 0 1 0 13.334ZM20 9.73C14.328 9.73 9.73 14.328 9.73 20S14.328 30.27 20 30.27 30.27 25.672 30.27 20 25.672 9.73 20 9.73Zm0-6.126c5.34 0 5.973.02 8.082.116 1.95.09 3.009.415 3.713.69.934.362 1.6.795 2.3 1.495.7.7 1.133 1.366 1.496 2.3.274.705.6 1.764.689 3.714.096 2.109.117 2.741.117 8.082 0 5.34-.02 5.972-.117 8.081-.09 1.95-.415 3.01-.689 3.714-.363.933-.796 1.6-1.496 2.3-.7.7-1.366 1.133-2.3 1.496-.704.274-1.763.6-3.713.689-2.11.096-2.742.116-8.082.116-5.34 0-5.973-.02-8.082-.116-1.95-.09-3.009-.415-3.714-.69-.933-.362-1.6-.795-2.3-1.495-.699-.7-1.133-1.366-1.496-2.3-.273-.705-.6-1.764-.688-3.714-.097-2.109-.117-2.741-.117-8.081s.02-5.973.117-8.082c.089-1.95.414-3.01.688-3.714.363-.933.797-1.6 1.497-2.3.7-.7 1.366-1.133 2.3-1.496.704-.274 1.763-.6 3.713-.689 2.11-.096 2.742-.116 8.082-.116ZM20 0c-5.432 0-6.113.023-8.246.12-2.129.098-3.583.436-4.855.93a9.8 9.8 0 0 0-3.542 2.307A9.8 9.8 0 0 0 1.05 6.899C.556 8.172.217 9.625.12 11.754.023 13.887 0 14.568 0 20s.023 6.113.12 8.246c.098 2.129.436 3.582.93 4.855a9.8 9.8 0 0 0 2.307 3.542 9.805 9.805 0 0 0 3.542 2.307c1.273.494 2.726.832 4.855.93 2.133.097 2.814.12 8.246.12s6.113-.023 8.246-.12c2.129-.098 3.582-.436 4.855-.93a9.804 9.804 0 0 0 3.542-2.307 9.804 9.804 0 0 0 2.307-3.542c.494-1.273.832-2.726.93-4.855.097-2.133.12-2.814.12-8.246s-.023-6.113-.12-8.246c-.098-2.129-.436-3.582-.93-4.855a9.805 9.805 0 0 0-2.307-3.542 9.804 9.804 0 0 0-3.542-2.307C31.828.556 30.375.217 28.246.12 26.113.023 25.432 0 20 0Z" fill="url(#c)"/><defs><radialGradient id="c" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(5.972 40.139) scale(51.11)"><stop stop-color="#FFB140"/><stop offset=".256" stop-color="#FF5445"/><stop offset=".599" stop-color="#FC2B82"/><stop offset="1" stop-color="#8E40B7"/></radialGradient></defs></svg>
+                </a>
+            </div>
         </div>
     </div>
 </nav>
@@ -27,7 +34,6 @@
     }
 
     .logo {
-        font-family: 'Ephesis', cursive;
         font-size: 40px;
         text-decoration: none;
         transition: color .3s;
@@ -93,7 +99,36 @@
         pointer-events: none;
     }
 
+    .socialLink {
+        display: block;
+    }
+
+    .socialIcons {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        gap: 20px;
+        height: 30px;
+    }
+
+    .socialIcon {
+        display: block;
+        height: 30px;
+        transition: transform .3s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+    }
+
     @media screen and (max-width: 768px) {
+        nav {
+            padding: 10px 20px;
+        }
+
+        .logo {
+            font-size: 26px;
+        }
 
         .toggleMenu {
             display: block;
@@ -186,6 +221,17 @@
 
         .toggleMenu input:checked ~ .navLinks {
             transform: none;
+        }
+
+        .navLink {
+            margin: 0 0 10px;
+            padding: 0;
+            font-size: 18px;
+            line-height: 40px;
+        }
+
+        .socialIcons {
+            margin-top: 10px;
         }
     }
 </style>
