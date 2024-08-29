@@ -19,8 +19,18 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 <style>
     .intro {
-        background: url("/offer-bg.jpg") no-repeat center center;
-        background-attachment: fixed;
-        background-size: cover;
+        &::before {
+            background: url("/offer-bg.jpg") no-repeat center center;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .intro {
+            &::before {
+                background: url("/offer-mobile-bg.jpg") no-repeat center center;
+                background-size: cover;
+            }
+        }
     }
 </style>

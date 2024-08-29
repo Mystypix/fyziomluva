@@ -17,18 +17,23 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 <style>
 	.intro {
-		padding: 72px 20px 20px;
-		background: url("/intro-bg.jpg") no-repeat center center;
-		background-attachment: fixed;
-		background-size: auto 100lvh;
-		text-align: center;
+		&::before {
+			background: url("/intro-bg.jpg") no-repeat center center;
+			background-size: cover;
+		}
+	}
+
+	.introTitle {
+		position: relative;
+		z-index: 1;
 	}
 
 	@media screen and (max-width: 768px) {
 		.intro {
-			padding: 58px 20px 20px;
-			background: url("/intro-mobile-bg.jpg") no-repeat center center;
-			background-size: 100% auto;
+			&::before {
+				background: url("/intro-mobile-bg.jpg") no-repeat center center;
+				background-size: cover;
+			}
 		}
 	}
 </style>

@@ -62,13 +62,43 @@ const { title } = Astro.props;
 		color: #fff;
 		text-shadow: 0 0 8px #000;
 	}
-	main {
+	.intro {
+		position: relative;
+		top: 0;
+		left: 0;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-direction: column;
-		padding-top: 72px;
-		min-height: 100dvh;
+		width: 100%;
+		height: 100vh;
+		padding: 72px 20px 20px;
+		text-align: center;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			right: 0;
+		}
+	}
+
+	.introTitle {
+		position: relative;
+		z-index: 1;
+	}
+
+	@media screen and (max-width: 768px) {
+		.intro {
+			padding: 58px 20px 20px;
+
+			&::before {
+				background: url("/intro-mobile-bg.jpg") no-repeat center center;
+				background-size: cover;
+			}
+		}
 	}
 	.section {
 		padding: 60px 30px;
@@ -90,6 +120,10 @@ const { title } = Astro.props;
 	@media screen and (max-width: 768px) {
 		* {
 			font-size: 16px;
+		}
+
+		.intro {
+			padding: 58px 20px 20px;
 		}
 
 		.introTitle {

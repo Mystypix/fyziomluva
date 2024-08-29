@@ -39,8 +39,18 @@ import Layout from "../layouts/Layout.astro";
 </Layout>
 <style>
     .intro {
-        background: url("/about-bg.jpg") no-repeat center center;
-        background-attachment: fixed;
-        background-size: cover;
+        &::before {
+            background: url("/about-bg.jpg") no-repeat center center;
+            background-size: cover;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        .intro {
+            &::before {
+                background: url("/about-mobile-bg.jpg") no-repeat center center;
+                background-size: cover;
+            }
+        }
     }
 </style>
